@@ -1,0 +1,25 @@
+<main class="h-screen bg-orange-300 flex justify-center items-center">
+
+  <div class="container text-center w-full mx-auto">
+    <div class="mb-10 ">
+      <h1 class="mb-10 text-2xl font-bold">
+        An error occurred: <span class="status ">{{ errorStatus }}</span>
+      </h1>
+
+      <div class="w-full text-start">
+        <div class="mb-3 flex justify-between items-center">
+          <p class="text-lg me-5">{{ errorDetails.path }}</p>
+          <p class="text-lg me-5">{{ errorDetails.message }}</p>
+          <p class="text-lg">{{ errorDetails.timestamp | date: 'medium' }}</p>
+        </div>
+        <pre class="p-1 mb-5 text-sm">{{ errorDetails.details | json }}</pre>
+      </div>
+    </div>
+
+    <div class="flex justify-center items-end">
+      <app-home-button (click)="goBack()">Return to Previous Page</app-home-button>
+    </div>
+  </div>
+</main>
+
+

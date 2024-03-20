@@ -1,0 +1,43 @@
+@import url(../../app/view/pages/home-page/home-page.component.css);
+
+.button-service-primary {
+  background: var(--darkOrange);
+  padding: 5px 20px;
+  border-radius: 3px;
+  border-color: transparent;
+  transition: all 0.3s ease;
+  color: white;
+  box-shadow: 0 15px 60px -4px var(--darkOrange);
+}
+
+.button-service-primary:hover {
+  transition: all 0.8s ease;
+  background: var(--darkOrange);
+  transform: translateY(-3px);
+}
+
+.button-service-primary:active {
+  transform: scale(0.95);
+  color: white;
+  background: var(--darkOrange);
+}
+
+.button-service-secondary {
+  background: transparent;
+  padding: 5px 20px;
+  border: 1px solid var(--darkOrange);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  color: var(--darkOrange);
+}
+
+.button-service-secondary:hover {
+  background: var(--darkOrange);
+  color: white;
+}
+
+.button-service-secondary:active {
+  transform: scale(0.95);
+  color: white;
+  background: var(--darkOrange);
+}
