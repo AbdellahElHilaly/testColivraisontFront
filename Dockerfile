@@ -1,4 +1,4 @@
-FROM node:20.11.0
+FROM node:20.11.0 AS build
 
 WORKDIR /app
 
@@ -6,7 +6,10 @@ COPY dist/colivraison/* .
 
 EXPOSE 4200
 
-RUN npm install -g http-server
+FROM nginx:latest
 
-CMD ["cd", "browser"]
-CMD ["http-server", "-p", "4200"]
+COPY --from=build /app /usr/share/nginx/html
+
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
