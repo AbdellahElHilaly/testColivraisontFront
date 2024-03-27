@@ -1,0 +1,3 @@
+<button class="toast show-animation" #notificationButton *ngIf="message" (click)="dismiss()">
+  <app-notification-helper [displayTime]="displayTime" [message]="message" [notificationType]="notificationType" (timerFinished)="dismiss()"></app-notification-helper>
+</button>

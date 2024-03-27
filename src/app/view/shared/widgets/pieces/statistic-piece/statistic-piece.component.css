@@ -1,0 +1,13 @@
+@import '../../../../../../assets/css/colors.css';
+
+h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--darkOrange);
+}
+
+h5 {
+  font-size: 1.1rem;
+  font-weight: 800;
+
+}

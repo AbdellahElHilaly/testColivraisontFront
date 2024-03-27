@@ -1,0 +1,255 @@
+
+<div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
+  <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+    Add New Colis
+  </h3>
+  <button type="button" id="addVendorColiModal_hide"
+          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+          data-modal-toggle="addVendorColiModal">
+    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+         xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd"
+            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+            clip-rule="evenodd"></path>
+    </svg>
+    <span class="sr-only">Close modal</span>
+  </button>
+</div>
+
+<div class="overflow-y-auto  ">
+
+  <form [formGroup]="colisVendorValidator.form">
+    <div class="grid gap-4 px-2 mb-4 sm:grid-cols-2">
+
+      <div>
+        <label [for]="colisVendorValidator.keys.marchandise"
+               [ngClass]="getLabelValidationStyle(colisVendorValidator.marchandise)"
+               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Marchandise</label>
+        <input type="text" [id]="colisVendorValidator.keys.marchandise"
+               (focus)="markAsTouched(colisVendorValidator.keys.marchandise)"
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+               [ngClass]="getInputValidationStyle(colisVendorValidator.marchandise)"
+               [formControlName]="colisVendorValidator.keys.marchandise"
+               placeholder="Enter marchandise">
+        <p class="mt-2 text-sm hidden"
+           [ngClass]="getSuggestionValidationStyle(colisVendorValidator.marchandise)">
+          {{ colisVendorValidator.marchandiseMessage() }}</p>
+      </div>
+
+      <div>
+        <label [for]="colisVendorValidator.keys.destinataire"
+               [ngClass]="getLabelValidationStyle(colisVendorValidator.destinataire)"
+               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Destinataire</label>
+        <input type="text" [id]="colisVendorValidator.keys.destinataire"
+               (focus)="markAsTouched(colisVendorValidator.keys.destinataire)"
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+               [ngClass]="getInputValidationStyle(colisVendorValidator.marchandise)"
+               [formControlName]="colisVendorValidator.keys.destinataire"
+               placeholder="Enter destinataire">
+        <p class="mt-2 text-sm hidden"
+           [ngClass]="getSuggestionValidationStyle(colisVendorValidator.destinataire)">
+          {{ colisVendorValidator.destinataireMessage() }}</p>
+      </div>
+
+      <div>
+        <label [for]="colisVendorValidator.keys.adresse"
+               [ngClass]="getLabelValidationStyle(colisVendorValidator.adresse)"
+               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Adresse</label>
+        <input type="text" [id]="colisVendorValidator.keys.adresse"
+               (focus)="markAsTouched(colisVendorValidator.keys.adresse)"
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+               [ngClass]="getInputValidationStyle(colisVendorValidator.adresse)"
+               [formControlName]="colisVendorValidator.keys.adresse"
+               placeholder="Enter adresse">
+        <p class="mt-2 text-sm hidden"
+           [ngClass]="getSuggestionValidationStyle(colisVendorValidator.adresse)">
+          {{ colisVendorValidator.adresseMessage() }}</p>
+      </div>
+
+      <div>
+        <label [for]="colisVendorValidator.keys.price"
+               [ngClass]="getLabelValidationStyle(colisVendorValidator.price)"
+               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
+        <input type="number" [id]="colisVendorValidator.keys.price"
+               (focus)="markAsTouched(colisVendorValidator.keys.price)"
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+               [ngClass]="getInputValidationStyle(colisVendorValidator.price)"
+               [formControlName]="colisVendorValidator.keys.price"
+               placeholder="Enter price">
+        <p class="mt-2 text-sm hidden"
+           [ngClass]="getSuggestionValidationStyle(colisVendorValidator.price)">
+          {{ colisVendorValidator.priceMessage() }}</p>
+      </div>
+
+
+      <div>
+        <label [for]="colisVendorValidator.keys.quantity"
+               [ngClass]="getLabelValidationStyle(colisVendorValidator.quantity)"
+               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Quantity</label>
+        <input type="number" [id]="colisVendorValidator.keys.quantity"
+               (focus)="markAsTouched(colisVendorValidator.keys.quantity)"
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+               [ngClass]="getInputValidationStyle(colisVendorValidator.quantity)"
+               [formControlName]="colisVendorValidator.keys.quantity"
+               placeholder="Enter quantity">
+        <p class="mt-2 text-sm hidden"
+           [ngClass]="getSuggestionValidationStyle(colisVendorValidator.quantity)">
+          {{ colisVendorValidator.quantityMessage() }}</p>
+      </div>
+
+
+      <div>
+        <label [for]="colisVendorValidator.keys.fragile"
+               [ngClass]="getLabelValidationStyle(colisVendorValidator.fragile)"
+               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fragile</label>
+        <select [id]="colisVendorValidator.keys.fragile"
+                (focus)="markAsTouched(colisVendorValidator.keys.fragile)"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                [ngClass]="getInputValidationStyle(colisVendorValidator.fragile)"
+                [formControlName]="colisVendorValidator.keys.fragile">
+          <option value="Select">Select</option>
+          <option value="false">No</option>
+          <option value="true">Yes</option>
+        </select>
+        <p class="mt-2 text-sm hidden"
+           [ngClass]="getSuggestionValidationStyle(colisVendorValidator.fragile)">
+          {{ colisVendorValidator.fragileMessage() }}</p>
+      </div>
+
+      <div>
+        <label [for]="colisVendorValidator.keys.openable"
+               [ngClass]="getLabelValidationStyle(colisVendorValidator.openable)"
+               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Openable</label>
+        <select [id]="colisVendorValidator.keys.openable"
+                (focus)="markAsTouched(colisVendorValidator.keys.openable)"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                [ngClass]="getInputValidationStyle(colisVendorValidator.openable)"
+                [formControlName]="colisVendorValidator.keys.openable">
+          <option value="Select">Select</option>
+          <option value="false">No</option>
+          <option value="true">Yes</option>
+        </select>
+        <p class="mt-2 text-sm hidden"
+           [ngClass]="getSuggestionValidationStyle(colisVendorValidator.openable)">
+          {{ colisVendorValidator.openableMessage() }}</p>
+      </div>
+
+      <div>
+        <label [for]="colisVendorValidator.keys.colisOfReplacement"
+               [ngClass]="getLabelValidationStyle(colisVendorValidator.colisOfReplacement)"
+               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Colis Of
+          Replacement</label>
+        <select [id]="colisVendorValidator.keys.colisOfReplacement"
+                (focus)="markAsTouched(colisVendorValidator.keys.colisOfReplacement)"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                [ngClass]="getInputValidationStyle(colisVendorValidator.colisOfReplacement)"
+                [formControlName]="colisVendorValidator.keys.colisOfReplacement">
+          <option value="Select">Select</option>
+          <option value="false">No</option>
+          <option value="true">Yes</option>
+        </select>
+        <p class="mt-2 text-sm hidden"
+           [ngClass]="getSuggestionValidationStyle(colisVendorValidator.colisOfReplacement)">
+          {{ colisVendorValidator.colisOfReplacementMessage() }}</p>
+      </div>
+
+      <div>
+        <label [for]="colisVendorValidator.keys.colisOfStock"
+               [ngClass]="getLabelValidationStyle(colisVendorValidator.colisOfStock)"
+               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Colis Of
+          Stock</label>
+        <select [id]="colisVendorValidator.keys.colisOfStock"
+                (focus)="markAsTouched(colisVendorValidator.keys.colisOfStock)"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                [ngClass]="getInputValidationStyle(colisVendorValidator.colisOfStock)"
+                [formControlName]="colisVendorValidator.keys.colisOfStock">
+          <option value="Select">Select</option>
+          <option value="false">No</option>
+          <option value="true">Yes</option>
+        </select>
+        <p class="mt-2 text-sm hidden"
+           [ngClass]="getSuggestionValidationStyle(colisVendorValidator.colisOfStock)">
+          {{ colisVendorValidator.colisOfStockMessage() }}</p>
+      </div>
+
+      <div>
+        <label [for]="colisVendorValidator.keys.cityId"
+               [ngClass]="getLabelValidationStyle(colisVendorValidator.cityId)"
+               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">City</label>
+        <select [id]="colisVendorValidator.keys.cityId"
+                (focus)="markAsTouched(colisVendorValidator.keys.cityId)"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                [ngClass]="getInputValidationStyle(colisVendorValidator.cityId)"
+                [formControlName]="colisVendorValidator.keys.cityId">
+          <option value="">Select</option>
+          <option *ngFor="let city of cities$ | async" [value]="city.id">{{ city.name }}</option>
+        </select>
+        <p class="mt-2 text-sm hidden"
+           [ngClass]="getSuggestionValidationStyle(colisVendorValidator.cityId)">
+          {{ colisVendorValidator.cityIdMessage() }}</p>
+      </div>
+
+
+      <div>
+        <label [for]="colisVendorValidator.keys.colisPhones_1"
+               [ngClass]="getLabelValidationStyle(colisVendorValidator.colisPhones_1)"
+               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Colis Phones
+          1</label>
+        <input type="text" [id]="colisVendorValidator.keys.colisPhones_1"
+               (focus)="markAsTouched(colisVendorValidator.keys.colisPhones_1)"
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+               [ngClass]="getInputValidationStyle(colisVendorValidator.colisPhones_1)"
+               [formControlName]="colisVendorValidator.keys.colisPhones_1"
+               placeholder="Enter colisPhones 1">
+        <p class="mt-2 text-sm hidden"
+           [ngClass]="getSuggestionValidationStyle(colisVendorValidator.colisPhones_1)">
+          {{ colisVendorValidator.colisPhoneMessage(1) }}</p>
+      </div>
+
+      <div>
+        <label [for]="colisVendorValidator.keys.colisPhones_2"
+               [ngClass]="getLabelValidationStyle(colisVendorValidator.colisPhones_2)"
+               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Colis Phones
+          2</label>
+        <input type="text" [id]="colisVendorValidator.keys.colisPhones_2"
+               (focus)="markAsTouched(colisVendorValidator.keys.colisPhones_2)"
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+               [ngClass]="getInputValidationStyle(colisVendorValidator.colisPhones_2)"
+               [formControlName]="colisVendorValidator.keys.colisPhones_2"
+               placeholder="Enter colisPhones 2">
+        <p class="mt-2 text-sm hidden"
+           [ngClass]="getSuggestionValidationStyle(colisVendorValidator.colisPhones_2)">
+          {{ colisVendorValidator.colisPhoneMessage(2) }}</p>
+      </div>
+
+      <div>
+        <label [for]="colisVendorValidator.keys.colisPhones_3"
+               [ngClass]="getLabelValidationStyle(colisVendorValidator.colisPhones_3)"
+               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Colis Phones
+          3</label>
+        <input type="text" [id]="colisVendorValidator.keys.colisPhones_3"
+               (focus)="markAsTouched(colisVendorValidator.keys.colisPhones_3)"
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+               [ngClass]="getInputValidationStyle(colisVendorValidator.colisPhones_3)"
+               [formControlName]="colisVendorValidator.keys.colisPhones_3"
+               placeholder="Enter colisPhones 3">
+        <p class="mt-2 text-sm hidden"
+           [ngClass]="getSuggestionValidationStyle(colisVendorValidator.colisPhones_3)">
+          {{ colisVendorValidator.colisPhoneMessage(3) }}</p>
+      </div>
+
+    </div>
+
+    <div class="flex justify-center items-center pb-2 space-x-4 ">
+      <button (click)="onSubmit()" type="button"
+              class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none
+             focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600
+             dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+        Save
+      </button>
+    </div>
+  </form>
+</div>
+
+<app-home-spinner *ngIf="isLoading | async"/>
+
